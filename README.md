@@ -1,4 +1,4 @@
 # Learning path of openGL
 
 ### Basic Element.
-![image](https://github.com/user-attachments/assets/f3d7d398-8159-4375-a608-5c9a86c870e6)
+![image](https://github.com/user-attachments/assets/8caff6b9-fda4-4dd4-9e0d-bbcee50f3e3c)
