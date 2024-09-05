@@ -6,3 +6,6 @@
 ### Views and Scenes.
 
 [Screencast from 2024-09-04 22-55-38.webm](https://github.com/user-attachments/assets/b8b42411-3285-4fd7-a080-2aea5de299a4)
+
+### Nodes and Transforms.
+![image](https://github.com/user-attachments/assets/769692c1-3f9f-4594-8536-8e409fb02b87)
