@@ -1,4 +1,6 @@
 import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import QtQuick3D
 import QtQuick3D.Helpers
 
@@ -19,9 +21,28 @@ Window {
       }
     }
 
+    DirectionalLight {}
+
+    Repeater3D {
+      x: -500
+      z: -500
+      model: 11
+      Repeater3D {
+        id: repeaterZ
+        required property int index
+        model: 11
+        MyModel {
+          required property int index
+          x: index * 100
+          z: repeaterZ.index * 100
+          y: index%2 == 0 ? 100 : repeaterZ.index %2 == 0 ? -100 : 0
+        }
+      }
+    }
+
     Node {
       id: originNode
-      eulerRotation.x: -25
+      eulerRotation.x: -20
 
       PerspectiveCamera {
         id: cameraNode
@@ -40,13 +61,6 @@ Window {
       anchors.right: parent.right
       width: 100
       height: 100
-    }
-
-    Text {
-      anchors.bottom: parent.bottom
-      anchors.horizontalCenter: parent.horizontalCenter
-      color: "white"
-      text: "Click and drag to rotate, Cmd/Alt + click and drag to pan, Scroll-Wheel/Pinch to zoom"
     }
   }
   Rectangle {

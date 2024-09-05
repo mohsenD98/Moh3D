@@ -18,6 +18,7 @@ qt_add_qml_module(appMoh3D
     QML_FILES
         Main.qml
         QML_FILES OriginGizmo.qml
+        QML_FILES MyModel.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
