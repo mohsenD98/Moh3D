@@ -9,3 +9,6 @@
 
 ### Nodes and Transforms.
 ![image](https://github.com/user-attachments/assets/769692c1-3f9f-4594-8536-8e409fb02b87)
+
+### Node Component Types.
+![image](https://github.com/user-attachments/assets/ce3979e5-1582-48d7-91f6-cafedf6a32b5)
