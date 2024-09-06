@@ -49,9 +49,14 @@ Components Provide Instructions for the Renderer
 
 While you can use the Node component directly, it by itself does not provide much more functionality than a transformation matrix and a list of children. Usually, you will use a component that inherits from Node and will provide instructions for the renderer to draw something. These components include cameras, lights, models, and 2D content.
 
-### Light.  
+### Directional light.  
 ![image](https://github.com/user-attachments/assets/6684510b-2b1a-4868-abe5-6b59914a4054)
 
+### Point light.
+![Screenshot from 2024-09-06 15-37-39](https://github.com/user-attachments/assets/f2fa5a8b-b0ee-4f3d-bc6b-dd6644c1f11e)
+
+### Spot light.
+![image](https://github.com/user-attachments/assets/9afeafa7-96ae-4546-bf79-6f9f85807d09)
 
 
 
