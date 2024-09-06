@@ -28,7 +28,7 @@ View3D {
 
     Model {
       source: "#Sphere"
-      scale: Qt.vector3d(0.02, 0.02, 0.02)
+      scale: Qt.vector3d(1, 1, 1)
       castsShadows: false
       receivesShadows: false
       materials: [

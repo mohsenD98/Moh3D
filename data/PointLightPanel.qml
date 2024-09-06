@@ -35,7 +35,7 @@ Pane {
                     }
                     Slider {
                         from: 0
-                        to: 1000
+                        to: 10000
                         value: panel.target.y
                         onValueChanged: panel.target.y = value
                     }
