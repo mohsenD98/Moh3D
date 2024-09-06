@@ -1,3 +1,4 @@
+
 import QtQuick
 import QtQuick3D
 import QtQuick3D.Helpers
@@ -19,13 +20,24 @@ View3D {
     source: "Sponza/Sponza.gltf"
   }
 
-  DirectionalLight {
-    id: light1
+  PointLight {
+    id: pointLight
     y: 100
-  }
+    castsShadow: true
+    shadowFactor: 50
 
-  ForwardHelper {
-    target: light1
+    Model {
+      source: "#Sphere"
+      scale: Qt.vector3d(0.02, 0.02, 0.02)
+      castsShadows: false
+      receivesShadows: false
+      materials: [
+        PrincipledMaterial {
+          baseColor: pointLight.color
+          lighting: PrincipledMaterial.NoLighting
+        }
+      ]
+    }
   }
 
   Node {
@@ -42,8 +54,8 @@ View3D {
     camera: cameraNode
   }
 
-  DirectionalLightPanel {
-    target: light1
+  PointLightPanel {
+    target: pointLight
   }
 
   OriginGizmo {
