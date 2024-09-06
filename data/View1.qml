@@ -19,7 +19,14 @@ View3D {
     source: "Sponza/Sponza.gltf"
   }
 
-  DirectionalLight {}
+  DirectionalLight {
+    id: light1
+    y: 100
+  }
+
+  ForwardHelper {
+    target: light1
+  }
 
   Node {
     id: originNode
@@ -33,6 +40,10 @@ View3D {
   OrbitCameraController {
     origin: originNode
     camera: cameraNode
+  }
+
+  DirectionalLightPanel {
+    target: light1
   }
 
   OriginGizmo {

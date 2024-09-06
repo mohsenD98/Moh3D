@@ -34,8 +34,6 @@ qt_add_qml_module(moh3D
     Main.qml
     QML_FILES MyModel.qml
     QML_FILES OriginGizmo.qml
-    DynamicItemLoader.qml
-    DynamicNodeLoader.qml
 
     SOURCES
       dynamicfileshelper.h dynamicfileshelper.cpp
