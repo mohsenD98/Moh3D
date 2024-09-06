@@ -58,5 +58,7 @@ While you can use the Node component directly, it by itself does not provide muc
 ### Spot light.
 ![image](https://github.com/user-attachments/assets/9afeafa7-96ae-4546-bf79-6f9f85807d09)
 
+### Image based light.
+![image](https://github.com/user-attachments/assets/6727bcc5-bd5b-490d-b585-0c52c3186921)
 
 
