@@ -2,32 +2,26 @@ import QtQuick
 import QtQuick3D
 import QtQuick3D.Helpers
 import QtQuick3D.AssetUtils
-
 import Moh3D
 
 View3D {
+  id: view
   anchors.fill: parent
 
   environment: SceneEnvironment {
     backgroundMode: SceneEnvironment.Color
     clearColor: "black"
+    lightProbe: Texture {
+      // Swap these out to use your own .hdr or .exr file
+      //source: "pathToYourHDRIFile.exr"
+      textureData: ProceduralSkyTextureData {}
+    }
   }
 
   RuntimeLoader {
     eulerRotation.y: 90
     scale: Qt.vector3d(100, 100, 100)
     source: "Sponza/Sponza.gltf"
-  }
-
-  SpotLight {
-    id: spotLight
-    y: 100
-    linearFade: 0.011
-    quadraticFade: 0.011
-  }
-
-  ForwardHelper {
-    target: spotLight
   }
 
   Node {
@@ -44,8 +38,8 @@ View3D {
     camera: cameraNode
   }
 
-  SpotLightPanel {
-    target: spotLight
+  LightProbePanel {
+    environment: view.environment
   }
 
   OriginGizmo {
