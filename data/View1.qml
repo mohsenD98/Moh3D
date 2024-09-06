@@ -1,4 +1,3 @@
-
 import QtQuick
 import QtQuick3D
 import QtQuick3D.Helpers
@@ -20,24 +19,15 @@ View3D {
     source: "Sponza/Sponza.gltf"
   }
 
-  PointLight {
-    id: pointLight
+  SpotLight {
+    id: spotLight
     y: 100
-    castsShadow: true
-    shadowFactor: 50
+    linearFade: 0.011
+    quadraticFade: 0.011
+  }
 
-    Model {
-      source: "#Sphere"
-      scale: Qt.vector3d(1, 1, 1)
-      castsShadows: false
-      receivesShadows: false
-      materials: [
-        PrincipledMaterial {
-          baseColor: pointLight.color
-          lighting: PrincipledMaterial.NoLighting
-        }
-      ]
-    }
+  ForwardHelper {
+    target: spotLight
   }
 
   Node {
@@ -54,8 +44,8 @@ View3D {
     camera: cameraNode
   }
 
-  PointLightPanel {
-    target: pointLight
+  SpotLightPanel {
+    target: spotLight
   }
 
   OriginGizmo {
