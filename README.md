@@ -61,4 +61,6 @@ While you can use the Node component directly, it by itself does not provide muc
 ### Image based light.
 ![image](https://github.com/user-attachments/assets/6727bcc5-bd5b-490d-b585-0c52c3186921)
 
+### Shadow.
+![image](https://github.com/user-attachments/assets/7a6386dd-df13-4d4c-ab46-bbaa04ef6536)
 
