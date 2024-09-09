@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick3D
+import QtQuick3D.Helpers
 
 View3D {
   id: view
@@ -13,29 +14,26 @@ View3D {
     pickable: true
   }
 
-  PerspectiveCamera {
-    id: cameraNode
-    eulerRotation.x: -30
-    z: 700
+  Node {
+    id: originNode
     y: 500
-    clipNear: 10
-    clipFar: 5000
+    eulerRotation.x: -30
+    PerspectiveCamera {
+      id: cameraNode
+      z: 700
+      clipNear: 10
+      clipFar: 5000
+    }
   }
 
-  MouseArea {
-    anchors.fill: parent
-
-    onClicked: mouse => {
-                 const result = view.pick(mouse.x, mouse.y)
-                 if (result.objectHit != null) {
-                   cameraNode.lookAt(result.scenePosition)
-                 }
-               }
+  OrbitCameraController {
+    origin: originNode
+    camera: cameraNode
   }
 
   Text {
     anchors.horizontalCenter: parent.horizontalCenter
     color: "white"
-    text: "Click a model to target camera"
+    text: "Click and drag to rotate, Cmd/Alt + click and drag to pan, Scroll-Wheel/Pinch to zoom"
   }
 }
