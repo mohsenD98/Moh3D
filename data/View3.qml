@@ -12,77 +12,57 @@ View3D {
 
   TestSceneContent {}
 
-  PerspectiveCamera {
+  OrthographicCamera {
     id: cameraNode
     eulerRotation.x: -30
     z: 700
     y: 500
-    clipNear: 10
-    clipFar: 4000
   }
 
   Pane {
     ColumnLayout {
       RowLayout {
         Label {
-          text: "clipNear"
+          text: "H Scale"
         }
         Slider {
-          from: 1
-          to: cameraNode.clipFar
-          value: cameraNode.clipNear
-          onValueChanged: cameraNode.clipNear = value
-          stepSize: 1
+          from: 0.001
+          to: 2.0
+          stepSize: 0.001
+          value: cameraNode.horizontalMagnification
+          onValueChanged: {
+            cameraNode.horizontalMagnification = value
+            if (syncCheckBox.checked)
+              cameraNode.verticalMagnification = value
+          }
         }
         Label {
-          text: cameraNode.clipNear
+          text: cameraNode.horizontalMagnification.toFixed(3)
         }
       }
       RowLayout {
         Label {
-          text: "clipFar"
+          text: "V Scale"
         }
         Slider {
-          from: cameraNode.clipNear
-          to: 5000
-          value: cameraNode.clipFar
-          onValueChanged: cameraNode.clipFar = value
-          stepSize: 1
-        }
-        Label {
-          text: cameraNode.clipFar
-        }
-      }
-      RowLayout {
-        Label {
-          text: "FieldOfView"
-        }
-        Slider {
-          from: 1
-          to: 180
-          value: cameraNode.fieldOfView
-          onValueChanged: cameraNode.fieldOfView = value
-          stepSize: 1
-        }
-        Label {
-          text: cameraNode.fieldOfView
-        }
-      }
-      GroupBox {
-        title: "FOV Orientation"
-        ColumnLayout {
-          RadioButton {
-            text: "Vertical"
-            autoExclusive: true
-            checked: cameraNode.fieldOfViewOrientation == PerspectiveCamera.Vertical
-            onCheckedChanged: cameraNode.fieldOfViewOrientation = PerspectiveCamera.Vertical
-          }
-          RadioButton {
-            text: "Horizontal"
-            checked: cameraNode.fieldOfViewOrientation == PerspectiveCamera.Horizontal
-            onCheckedChanged: cameraNode.fieldOfViewOrientation = PerspectiveCamera.Horizontal
+          from: 0.001
+          to: 2.0
+          stepSize: 0.001
+          value: cameraNode.verticalMagnification
+          onValueChanged: {
+            cameraNode.verticalMagnification = value
+            if (syncCheckBox.checked)
+              cameraNode.horizontalMagnification = value
           }
         }
+        Label {
+          text: cameraNode.verticalMagnification.toFixed(3)
+        }
+      }
+      CheckBox {
+        id: syncCheckBox
+        text: "Synced"
+        checked: false
       }
     }
   }
