@@ -16,6 +16,6 @@ Window {
 
   Loader {
     anchors.fill: parent
-    source: "file:///home/mohsen/Codes/Moh3D/Moh3D/data/View2.qml"
+    source: "file:///home/mohsen/Codes/Moh3D/Moh3D/data/View3.qml"
   }
 }
