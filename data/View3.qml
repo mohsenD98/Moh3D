@@ -14,26 +14,21 @@ View3D {
     pickable: true
   }
 
-  Node {
-    id: originNode
-    y: 500
+  PerspectiveCamera {
+    id: cameraNode
     eulerRotation.x: -30
-    PerspectiveCamera {
-      id: cameraNode
-      z: 700
-      clipNear: 10
-      clipFar: 5000
-    }
+    z: 700
+    y: 500
+    clipNear: 10
+    clipFar: 5000
   }
 
-  OrbitCameraController {
-    origin: originNode
-    camera: cameraNode
+  WasdController {
+    controlledObject: cameraNode
   }
 
   Text {
-    anchors.horizontalCenter: parent.horizontalCenter
     color: "white"
-    text: "Click and drag to rotate, Cmd/Alt + click and drag to pan, Scroll-Wheel/Pinch to zoom"
+    text: "Click and drag to aim camera\nw: foward\ns: back\na: right\nd: left\nr: up\nf: down\nhold shift: move faster"
   }
 }
